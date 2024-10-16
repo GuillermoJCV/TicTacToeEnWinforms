@@ -18,9 +18,8 @@ namespace TicTacToeEnWinforms
             if (CheckSiLaCeldaEstaVacia(Celda))
             {
                 DibujarEnCelda(Celda);
-                Celda.Invalidate();
-                if (CheckSiEsEmpate()) ProtocoloSiHayEmpate();
                 if (CheckSiHayGanador() != "") ProtocoloSiHayGanador(currentPlayer);
+                if (CheckSiEsEmpate() && CheckSiHayGanador() == "") ProtocoloSiHayEmpate();
                 CambiarJugador();
             }
         }
@@ -114,15 +113,20 @@ namespace TicTacToeEnWinforms
             botonComenzarJuego = ButtonComenzarJuego;
             botonComenzarJuego.Enabled = false;
             botonComenzarJuego.Text = "Juego en Proceso";
-            botones.Add(ButtonCelda1);
-            botones.Add(ButtonCelda2);
-            botones.Add(ButtonCelda3);
-            botones.Add(ButtonCelda4);
-            botones.Add(ButtonCelda5);
-            botones.Add(ButtonCelda6);
-            botones.Add(ButtonCelda7);
-            botones.Add(ButtonCelda8);
-            botones.Add(ButtonCelda9);
+
+            if (!botones.Contains(ButtonCelda1))
+            {
+                botones.Add(ButtonCelda1);
+                botones.Add(ButtonCelda2);
+                botones.Add(ButtonCelda3);
+                botones.Add(ButtonCelda4);
+                botones.Add(ButtonCelda5);
+                botones.Add(ButtonCelda6);
+                botones.Add(ButtonCelda7);
+                botones.Add(ButtonCelda8);
+                botones.Add(ButtonCelda9);
+            }
+
             CambiarEnableDeLosBotones(true);
             currentPlayer = firstPlayer;
         }
