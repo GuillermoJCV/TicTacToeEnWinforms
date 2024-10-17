@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Reflection;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace TicTacToeEnWinforms
@@ -11,8 +11,6 @@ namespace TicTacToeEnWinforms
         {
             InitializeComponent();
         }
-
-        private void label1_Click(object sender, EventArgs e) {}
 
         static void SiguienteTurno(Button Celda) {
             if (CheckSiLaCeldaEstaVacia(Celda))
@@ -29,7 +27,42 @@ namespace TicTacToeEnWinforms
             botonComenzarJuego.Text = "Resetear";
             botonComenzarJuego.Enabled = true;
             CambiarEnableDeLosBotones(false);
-            MessageBox.Show("El ganador es " + winner);
+
+            if (winner == firstPlayer)
+            {
+                SumarUnoAlContador(labelScoreO);
+                ColorearGanadorYPerdedor(labelO, labelX, false);
+            }
+            else
+            {
+                SumarUnoAlContador(labelScoreX);
+                ColorearGanadorYPerdedor(labelX, labelO, false);
+            }
+
+            
+        }
+
+        static void SumarUnoAlContador(Label contador)
+        {
+            string numeroActual = contador.Text;
+            bool numeroPudoSerParseado = int.TryParse(numeroActual, out int numeroActualParseado);
+
+            if (numeroPudoSerParseado) contador.Text = (numeroActualParseado + 1).ToString();
+            else contador.Text = "1";
+        }
+
+        static void ColorearGanadorYPerdedor(TextBox ganador, TextBox perdedor, bool seEstaReseteando)
+        {
+            if (seEstaReseteando)
+            {
+                ganador.BackColor = Color.WhiteSmoke;
+                perdedor.BackColor = Color.WhiteSmoke;
+            }
+            else
+            {
+                ganador.BackColor= Color.PaleGreen;
+                perdedor.BackColor= Color.LightCoral;
+            }
         }
 
         static void ProtocoloSiHayEmpate()
@@ -100,11 +133,17 @@ namespace TicTacToeEnWinforms
             }
         }
 
-        const string firstPlayer = "o";
-        const string secondPlayer = "x";
+        private static string firstPlayer = "o";
+        private static string secondPlayer = "x";
         private static string currentPlayer = firstPlayer;
         private static Button botonComenzarJuego;
         private static List<Button> botones = new List<Button>();
+
+        private static Label labelScoreX;
+        private static Label labelScoreO;
+
+        private static TextBox labelX;
+        private static TextBox labelO;
 
         /* Boton de comenzar juego */
         private void button1_Click(object sender, EventArgs e)
@@ -126,9 +165,48 @@ namespace TicTacToeEnWinforms
                 botones.Add(ButtonCelda8);
                 botones.Add(ButtonCelda9);
             }
+            labelScoreX = LabelScoreX;
+            labelScoreO = LabelScoreO;
+            labelX = TextBoxX;
+            labelO = TextBoxO;
+            ColorearGanadorYPerdedor(labelX, labelO, true);
 
             CambiarEnableDeLosBotones(true);
             currentPlayer = firstPlayer;
+        }
+
+        private void TextBoxO_TextChanged(object sender, EventArgs e)
+        {
+            string textoActual = TextBoxO.Text;
+            if (textoActual != string.Empty)
+            {
+                string letraActual = firstPlayer;
+                string primeraLetra = textoActual.Substring(0, 1);
+
+                firstPlayer = secondPlayer == primeraLetra ? letraActual : primeraLetra;
+
+                foreach (var boton in botones)
+                {
+                    if (boton.Text == letraActual) boton.Text = firstPlayer;
+                }
+            }
+        }
+
+        private void TextBoxX_TextChanged(object sender, EventArgs e)
+        {
+            string textoActual = TextBoxX.Text;
+            if (textoActual != string.Empty)
+            {
+                string letraActual = secondPlayer;
+                string primeraLetra = textoActual.Substring(0, 1);
+
+                secondPlayer = firstPlayer == primeraLetra ? letraActual : primeraLetra;
+
+                foreach (var boton in botones)
+                {
+                    if(boton.Text == letraActual) boton.Text = secondPlayer;
+                }
+            }
         }
 
         private void ButtonCelda1_Click(object sender, EventArgs e) { SiguienteTurno(ButtonCelda1); }

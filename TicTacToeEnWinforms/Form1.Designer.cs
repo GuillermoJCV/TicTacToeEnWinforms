@@ -30,7 +30,13 @@
         {
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.Titulo = new System.Windows.Forms.Label();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.TextBoxO = new System.Windows.Forms.TextBox();
+            this.LabelScoreO = new System.Windows.Forms.Label();
+            this.LabelScoreX = new System.Windows.Forms.Label();
+            this.TextBoxX = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.ButtonComenzarJuego = new System.Windows.Forms.Button();
             this.TableLayoutJuego = new System.Windows.Forms.TableLayoutPanel();
@@ -40,11 +46,13 @@
             this.ButtonCelda6 = new System.Windows.Forms.Button();
             this.ButtonCelda5 = new System.Windows.Forms.Button();
             this.ButtonCelda4 = new System.Windows.Forms.Button();
-            this.ButtonCelda3 = new System.Windows.Forms.Button();
             this.ButtonCelda2 = new System.Windows.Forms.Button();
             this.ButtonCelda1 = new System.Windows.Forms.Button();
+            this.ButtonCelda3 = new System.Windows.Forms.Button();
             this.flowLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            this.flowLayoutPanel2.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.TableLayoutJuego.SuspendLayout();
             this.SuspendLayout();
@@ -65,8 +73,8 @@
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.91954F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 89.08046F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel1.Controls.Add(this.Titulo, 1, 0);
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 43F));
+            this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel2, 1, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(4, 5);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -76,16 +84,87 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(300, 683);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // Titulo
+            // flowLayoutPanel2
             // 
-            this.Titulo.Location = new System.Drawing.Point(32, 0);
-            this.Titulo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.Titulo.Name = "Titulo";
-            this.Titulo.Size = new System.Drawing.Size(223, 37);
-            this.Titulo.TabIndex = 0;
-            this.Titulo.Text = "TIC TAC TOE";
-            this.Titulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.Titulo.Click += new System.EventHandler(this.label1_Click);
+            this.flowLayoutPanel2.Controls.Add(this.label1);
+            this.flowLayoutPanel2.Controls.Add(this.tableLayoutPanel3);
+            this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(31, 3);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(222, 677);
+            this.flowLayoutPanel2.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Cascadia Code", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(221, 43);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "TIC TAC TOE";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.ColumnCount = 2;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.Controls.Add(this.TextBoxO, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.LabelScoreO, 1, 1);
+            this.tableLayoutPanel3.Controls.Add(this.LabelScoreX, 0, 1);
+            this.tableLayoutPanel3.Controls.Add(this.TextBoxX, 0, 0);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 46);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 2;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 45.25862F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 54.74138F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(221, 101);
+            this.tableLayoutPanel3.TabIndex = 1;
+            // 
+            // TextBoxO
+            // 
+            this.TextBoxO.Font = new System.Drawing.Font("Cascadia Code", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TextBoxO.Location = new System.Drawing.Point(113, 3);
+            this.TextBoxO.Multiline = true;
+            this.TextBoxO.Name = "TextBoxO";
+            this.TextBoxO.Size = new System.Drawing.Size(104, 39);
+            this.TextBoxO.TabIndex = 6;
+            this.TextBoxO.Text = "O";
+            this.TextBoxO.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TextBoxO.TextChanged += new System.EventHandler(this.TextBoxO_TextChanged);
+            // 
+            // LabelScoreO
+            // 
+            this.LabelScoreO.Font = new System.Drawing.Font("Cascadia Code", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelScoreO.Location = new System.Drawing.Point(113, 45);
+            this.LabelScoreO.Name = "LabelScoreO";
+            this.LabelScoreO.Size = new System.Drawing.Size(104, 56);
+            this.LabelScoreO.TabIndex = 4;
+            this.LabelScoreO.Text = "0";
+            this.LabelScoreO.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // LabelScoreX
+            // 
+            this.LabelScoreX.Font = new System.Drawing.Font("Cascadia Code", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelScoreX.Location = new System.Drawing.Point(3, 45);
+            this.LabelScoreX.Name = "LabelScoreX";
+            this.LabelScoreX.Size = new System.Drawing.Size(104, 56);
+            this.LabelScoreX.TabIndex = 3;
+            this.LabelScoreX.Text = "0";
+            this.LabelScoreX.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // TextBoxX
+            // 
+            this.TextBoxX.Font = new System.Drawing.Font("Cascadia Code", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TextBoxX.Location = new System.Drawing.Point(3, 3);
+            this.TextBoxX.Multiline = true;
+            this.TextBoxX.Name = "TextBoxX";
+            this.TextBoxX.Size = new System.Drawing.Size(104, 39);
+            this.TextBoxX.TabIndex = 5;
+            this.TextBoxX.Text = "X";
+            this.TextBoxX.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TextBoxX.TextChanged += new System.EventHandler(this.TextBoxX_TextChanged);
             // 
             // tableLayoutPanel2
             // 
@@ -202,17 +281,6 @@
             this.ButtonCelda4.UseVisualStyleBackColor = true;
             this.ButtonCelda4.Click += new System.EventHandler(this.ButtonCelda4_Click);
             // 
-            // ButtonCelda3
-            // 
-            this.ButtonCelda3.Enabled = false;
-            this.ButtonCelda3.Font = new System.Drawing.Font("Cascadia Code", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ButtonCelda3.Location = new System.Drawing.Point(561, 3);
-            this.ButtonCelda3.Name = "ButtonCelda3";
-            this.ButtonCelda3.Size = new System.Drawing.Size(272, 190);
-            this.ButtonCelda3.TabIndex = 2;
-            this.ButtonCelda3.UseVisualStyleBackColor = true;
-            this.ButtonCelda3.Click += new System.EventHandler(this.ButtonCelda3_Click);
-            // 
             // ButtonCelda2
             // 
             this.ButtonCelda2.Enabled = false;
@@ -237,6 +305,17 @@
             this.ButtonCelda1.UseVisualStyleBackColor = false;
             this.ButtonCelda1.Click += new System.EventHandler(this.ButtonCelda1_Click);
             // 
+            // ButtonCelda3
+            // 
+            this.ButtonCelda3.Enabled = false;
+            this.ButtonCelda3.Font = new System.Drawing.Font("Cascadia Code", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonCelda3.Location = new System.Drawing.Point(561, 3);
+            this.ButtonCelda3.Name = "ButtonCelda3";
+            this.ButtonCelda3.Size = new System.Drawing.Size(272, 190);
+            this.ButtonCelda3.TabIndex = 2;
+            this.ButtonCelda3.UseVisualStyleBackColor = true;
+            this.ButtonCelda3.Click += new System.EventHandler(this.ButtonCelda3_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
@@ -249,6 +328,9 @@
             this.Text = "Form1";
             this.flowLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel3.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.TableLayoutJuego.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -259,7 +341,6 @@
 
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Label Titulo;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Button ButtonComenzarJuego;
         private System.Windows.Forms.TableLayoutPanel TableLayoutJuego;
@@ -272,6 +353,13 @@
         private System.Windows.Forms.Button ButtonCelda3;
         private System.Windows.Forms.Button ButtonCelda2;
         private System.Windows.Forms.Button ButtonCelda1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.Label LabelScoreO;
+        private System.Windows.Forms.Label LabelScoreX;
+        private System.Windows.Forms.TextBox TextBoxX;
+        private System.Windows.Forms.TextBox TextBoxO;
     }
 }
 
